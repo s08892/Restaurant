@@ -54,22 +54,22 @@ public class Menu {
         int menuOption;
         int foodItem = 0;
         input = new Scanner(System.in);
-        do {
-            double runningTotal = 0;
+        double runningTotal=0;
+        do{
             menu();
             menuOption = input.nextInt();
-            switch (menuOption) {
+            switch(menuOption){
                 case 1:
                     foodItem = 1;
-                    itemPrice(foodItem);
+                    runningTotal += itemPrice(foodItem);
                     break;
                 case 2:
                     foodItem = 2;
-                    itemPrice(foodItem);
+                    runningTotal += itemPrice(foodItem);
                     break;
                 case 3:
                     foodItem = 3;
-                    itemPrice(foodItem);
+                    runningTotal += itemPrice(foodItem);
                     break;
                 case 4:
                     done(runningTotal);
@@ -77,13 +77,7 @@ public class Menu {
                 default:
                     System.out.println("Invalid option.");
             }
-        } while (ordering);
-        {
-            subTotal(quantity(), itemPrice(foodItem));
-            runningTotal = runningTotal + subTotal(quantity(), itemPrice(foodItem));
-
-            System.out.println("Thank you");
-
-        }
+        } while(ordering);
+        System.out.println("Total amount: " + runningTotal);
     }
 }
